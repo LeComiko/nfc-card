@@ -1,22 +1,20 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { AddContactButton } from '@/components/AddContactButton'
 
 describe('AddContactButton', () => {
   beforeEach(() => {
-    // Mock URL.createObjectURL
+    // Mock URL.createObjectURL / revokeObjectURL (absents de jsdom)
     global.URL.createObjectURL = vi.fn(() => 'blob:mock')
     global.URL.revokeObjectURL = vi.fn()
 
-    // Mock document.createElement pour intercepter le click sur le lien
-    const originalCreate = document.createElement.bind(document)
-    vi.spyOn(document, 'createElement').mockImplementation((tag) => {
-      const el = originalCreate(tag)
-      if (tag === 'a') {
-        vi.spyOn(el as HTMLAnchorElement, 'click').mockImplementation(() => {})
-      }
-      return el
-    })
+    // On intercepte le click de l'ancre via le prototype — évite de remplacer
+    // document.createElement (qui provoque une récursion infinie une fois spié).
+    vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
   })
 
   it('rend le bouton avec le bon label', () => {
