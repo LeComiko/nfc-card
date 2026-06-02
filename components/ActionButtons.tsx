@@ -1,14 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Phone, Mail, Globe, Link } from 'lucide-react'
+import { Phone, Mail, Globe } from 'lucide-react'
 import { profile } from '@/config/profile'
+import { LinkedInIcon } from '@/components/BrandIcons'
 
 const buttons = [
   { label: 'Appeler', href: `tel:${profile.phone}`, icon: Phone },
   { label: 'Email', href: `mailto:${profile.email}`, icon: Mail },
   { label: 'Site web', href: profile.website, icon: Globe },
-  { label: 'LinkedIn', href: profile.linkedin, icon: Link },
+  { label: 'LinkedIn', href: profile.linkedin, icon: LinkedInIcon },
 ]
 
 const container = {
