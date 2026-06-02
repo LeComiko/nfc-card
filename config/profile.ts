@@ -1,28 +1,26 @@
 export const profile = {
   // Identité
   name: 'Filipe Taveira',
-  title: 'Directeur Opérations',
-  company: 'FT Solutions',
+  title: 'Fondateur',
+  company: 'Interlo',
   description:
-    'Nous accompagnons les copropriétés et entreprises dans la gestion de leurs interventions et travaux.',
+    'J\'accompagne les copropriétés et les PME du bâtiment en offrant des services de digitalisation innovants.',
 
-  // Contact — [À COMPLÉTER avant mise en production]
-  phone: '+33600000000',
-  email: 'contact@ftsolutions.fr',
-  website: 'https://ftsolutions.fr',
+  // Contact
+  phone: '+33652837639',
+  email: 'filipe@interlo.pro',
+  website: 'https://interlo.fr',
 
-  // Réseaux sociaux — [À COMPLÉTER avant mise en production]
-  linkedin: 'https://linkedin.com/in/filipe-taveira',
-  instagram: 'https://instagram.com/ftsolutions',
-  facebook: 'https://facebook.com/ftsolutions',
-  whatsapp: 'https://wa.me/33600000000',
+  // Réseaux sociaux
+  linkedin: 'https://www.linkedin.com/company/116064201',
+  whatsapp: 'https://wa.me/33652837639',
 
   // URL du profil (injectée depuis la variable d'environnement)
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
 
   // Contenu entreprise
   aboutCompany:
-    'Nous accompagnons les copropriétés et entreprises dans la gestion de leurs interventions et travaux. Notre équipe qualifiée intervient rapidement pour tous vos besoins en maintenance et rénovation.',
+    'Interlo accompagne les copropriétés et les PME du bâtiment dans leur transformation digitale. Nous concevons des services innovants pour simplifier la gestion des interventions, des travaux et de la relation client.',
 } as const
 
 export type Profile = typeof profile

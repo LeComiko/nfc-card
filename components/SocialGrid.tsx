@@ -1,15 +1,8 @@
 import { profile } from '@/config/profile'
-import {
-  LinkedInIcon,
-  InstagramIcon,
-  FacebookIcon,
-  WhatsAppIcon,
-} from '@/components/BrandIcons'
+import { LinkedInIcon, WhatsAppIcon } from '@/components/BrandIcons'
 
 const socials = [
   { label: 'LinkedIn', href: profile.linkedin, Icon: LinkedInIcon, color: 'text-[#0A66C2]', bg: 'bg-[#0A66C2]/10' },
-  { label: 'Instagram', href: profile.instagram, Icon: InstagramIcon, color: 'text-[#E1306C]', bg: 'bg-[#E1306C]/10' },
-  { label: 'Facebook', href: profile.facebook, Icon: FacebookIcon, color: 'text-[#1877F2]', bg: 'bg-[#1877F2]/10' },
   { label: 'WhatsApp', href: profile.whatsapp, Icon: WhatsAppIcon, color: 'text-[#25D366]', bg: 'bg-[#25D366]/10' },
 ]
 
