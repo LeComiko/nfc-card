@@ -23,7 +23,9 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
+      # npm install (et non npm ci) : tolère les dépendances optionnelles
+      # natives propres à Linux absentes d'un lockfile généré sous Windows.
+      - run: npm install --no-audit --no-fund
       - name: Vérifier que NEXT_PUBLIC_SITE_URL est défini
         run: |
           if [ -z "${{ vars.NEXT_PUBLIC_SITE_URL }}" ]; then
