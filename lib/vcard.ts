@@ -8,9 +8,16 @@ interface VCardData {
 }
 
 export function generateVCard(data: VCardData): string {
+  // N: (nom structuré) = Famille;Prénom;... — requis par la RFC 2426 et
+  // mieux interprété par certains parseurs que FN seul.
+  const parts = data.name.trim().split(/\s+/)
+  const firstName = parts.shift() ?? ''
+  const lastName = parts.join(' ')
+
   return [
     'BEGIN:VCARD',
     'VERSION:3.0',
+    `N:${lastName};${firstName};;;`,
     `FN:${data.name}`,
     `ORG:${data.company}`,
     `TITLE:${data.title}`,
