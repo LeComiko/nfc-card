@@ -1,16 +1,10 @@
-const isProd = process.env.NODE_ENV === 'production'
-const repoName = 'nfc-card' // doit correspondre exactement au nom du repo GitHub
-
-const basePath = isProd ? `/${repoName}` : ''
-
+// Le site est servi à la racine du domaine personnalisé carte.interlo.fr,
+// donc pas de basePath. NEXT_PUBLIC_BASE_PATH reste exposé (vide) pour que
+// ProfileHeader continue de fonctionner sans condition.
 const nextConfig = {
   output: 'export',
-  basePath,
-  assetPrefix: isProd ? `/${repoName}/` : '',
   images: { unoptimized: true },
-  // Exposé au client pour préfixer les <img> servis depuis /public
-  // (Next n'applique pas le basePath aux balises <img> brutes).
-  env: { NEXT_PUBLIC_BASE_PATH: basePath },
+  env: { NEXT_PUBLIC_BASE_PATH: '' },
 }
 
 export default nextConfig
